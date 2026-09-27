@@ -30,8 +30,12 @@ The single contact address is stored base64-encoded in `config.js` and injected 
 ## Monetization switches (`config.js`)
 `adsenseClient` (also update `ads.txt`), `youtube.featured[].id`, `support.*` donation links, `amazonTag`, `analytics.ga4`.
 
-## Deploy
-Pushing to `main` runs `.github/workflows/pages.yml` which enables and deploys GitHub Pages. If the first run reports Pages is not enabled, open **Settings → Pages → Source: GitHub Actions** once and re-run.
+## Deploy (GitHub Pages, free plan)
+The site is plain static files served from the `main` branch root — no build step.
+
+1. **Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `main` / `/ (root)` → Save.** (One-time click; Pages goes live at `https://webworksa1.github.io/betterkid-com/` within ~1–2 minutes.)
+2. Optional custom domain: add a `CNAME` file containing `betterkid.com`, create DNS A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` and a `www` CNAME to `webworksa1.github.io`, then tick **Enforce HTTPS**.
+3. Optional Actions-based deploy: `.github/workflows/pages.yml` is included in the local build; committing it requires a token with the `workflow` scope (push it from your own machine or the web UI) and Source set to "GitHub Actions".
 
 ## Legal
 See `legal/trademark.html` for the trademark & copyright notice. "BetterKid" is used descriptively; no affiliation with any other organisation using a similar name.
